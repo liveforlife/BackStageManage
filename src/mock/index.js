@@ -24,6 +24,34 @@ let mock=new MockAdapter(axios)
 // get请求。不带参
 mock.onGet('/list').reply(200,produceList())
 
+mock.onGet('/contact/list').reply(200,(function(){
+	let list=[]
+	for (let i=0;i<10;i++) {
+		let listObject={
+			date: Random.date(),
+			name: Random.cname(),
+			email:Random.email(),
+			address: Mock.mock('@county(true)')
+		}
+		list.push(listObject)
+	}
+	return list
+})())
+
+mock.onGet('/index/list').reply(200,(function(){
+	let list=[]
+	for (let i=0;i<10;i++) {
+		let listObject={
+			date: Random.date(),
+			name: Random.cname(),
+			email:Random.email(),
+			address: Mock.mock('@county(true)')
+		}
+		list.push(listObject)
+	}
+	return list
+})())
+
 mock.onPost('login').reply(function(config){
 	let {data}={...config}
 	data=JSON.parse(data)

@@ -43,4 +43,11 @@ axios.interceptors.response.use(
 		return Promise.reject(err).catch(err)
 	}
 )
-export default axios
+export default {
+	install: function (Vue, option = {}) {
+		// 1.通过 Vue.httpClient 调用
+		Vue.axios = axios
+		// 2.通过 this.$httpClient 调用
+		Vue.prototype.$axios = axios
+	}
+}//axios

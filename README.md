@@ -30,5 +30,9 @@ npm run lint
 npm run test:unit
 ```
 
+### install use && Vue.axios 
+
+### git commit --amend
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
