@@ -40,10 +40,12 @@ let  router=new Router({
     },{
 			path: '/login',
 			name: 'login',
-			component: Login
+			component: Login,
+			hidden: true
 		},{
-			path:'404',
-			component:NotFound
+			path:'/404',
+			component:NotFound,
+			hidden: true
 		},{
 			path: '*',
 			redirect: {
@@ -54,15 +56,17 @@ let  router=new Router({
 })
 
 router.beforeEach(({meta,path,name},from,next)=>{
-	let user=sessionStorage.getItem('user');
+	
+	
+	 let user=sessionStorage.getItem('user');
 	if(path !== '/login' && !user){
-		return next({ path: '/login' })
+		next({ path: '/login' })
 	}else if(path === '/login' && user){
 		sessionStorage.removeItem('user')
-		location.reload()
+		next({ path: '/login' })
 	}
 		next()
-})
+}) 
 
 export default router
 

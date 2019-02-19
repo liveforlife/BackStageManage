@@ -5,25 +5,33 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "test:mocha": "mocha test",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "axios-mock-adapter": "^1.15.0",
     "element-ui": "^2.4.11",
+    "eslint": "^5.12.0",
     "save-dev": "^2.0.0",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
+    "vue-server-renderer": "^2.5.19",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.2.0",
     "@vue/cli-plugin-unit-mocha": "^3.2.0",
-    "@vue/cli-service": "^3.2.0",
+    "@vue/cli-service": "^3.4.0",
     "@vue/test-utils": "^1.0.0-beta.20",
     "chai": "^4.1.2",
+    "mocha": "^5.2.0",
     "mockjs": "^1.0.1-beta3",
-    "vue-template-compiler": "^2.5.17"
+    "mz": "2.4.0",
+    "vue-template-compiler": "^2.5.17",
+    "vuepress": "^0.14.9"
   },
   "postcss": {
     "plugins": {
