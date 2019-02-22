@@ -1,5 +1,5 @@
 module.exports = {
-	 baseUrl: './',
+	 baseUrl: './BackStageManage/dist',
   lintOnSave: false,
   outputDir:'dist',
   assetsDir:'assets',
