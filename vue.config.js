@@ -1,4 +1,5 @@
 module.exports = {
+	 baseUrl: './',
   lintOnSave: false,
   outputDir:'dist',
   assetsDir:'assets',
