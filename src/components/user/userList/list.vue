@@ -33,7 +33,28 @@
 				title="提示"
 				:visible.sync="dialogVisible"
 				width="30%">
-				<list-info :childInfo="childInfo"></list-info>
+				<list-info :childInfo="childInfo" v-model="lovingVue">
+					<template v-slot:header>
+						<h1>there is a header</h1>
+					</template>
+					<template v-slot:default="slotProps">
+						{{slotProps.childInfo.date}}
+					</template>
+					<template >
+						<el-row>
+							<el-col :span="8">日期:{{this.childInfo.date}}</el-col>
+							<el-col :span="8">姓名:{{this.childInfo.name}}</el-col>
+							<el-col :span="8">地址:{{this.childInfo.address}}</el-col>
+						</el-row>
+					</template>
+					
+					<template v-slot:footer>
+						<h1>there is a footer</h1>
+					</template>
+					<template>
+						there is no name
+					</template>
+				</list-info>
 				</span>
 			</el-dialog>
 		
@@ -48,6 +69,7 @@
 			components:{'list-info':listInfo},
       data() {
         return {
+					lovingVue:true,
 					dialogVisible:false,
 					childInfo:{},
 					dataInfo:'datainfo for some time',
