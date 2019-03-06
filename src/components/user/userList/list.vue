@@ -1,5 +1,5 @@
  <template>
-    <div>
+    <div class="listClass">
 			<el-table
 				:data="tableData"
 				style="width: 100%">
@@ -18,8 +18,10 @@
 					label="地址">
 				</el-table-column>
 				<el-table-column
-					prop="address"
 					label="地址">
+					<template slot-scope="scope">
+						<span v-bind:style="{color:scope.row.index % 2 === 0 ? fontColor : '#0000FF'}">{{scope.row.address}} {{scope.row.index % 2}}</span>
+					</template>
 				</el-table-column>
 				<el-table-column
 					label="操作">
@@ -69,6 +71,7 @@
 			components:{'list-info':listInfo},
       data() {
         return {
+					fontColor:'#FF0000',
 					lovingVue:true,
 					dialogVisible:false,
 					childInfo:{},
@@ -125,8 +128,12 @@
 			}
     }
   </script>
-	<style>
+	<style lang="less">
+		@import './list.less';
 		.listClass{
-			color: red;
+			.el-table__body{
+				color: @fontColorRed;
+				font-size: @fontSize;
+			}
 		}
 	</style>

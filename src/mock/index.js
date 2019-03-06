@@ -11,6 +11,7 @@ const produceList=function(){
 	let list=[]
 	for (let i=0;i<10;i++) {
 		let listObject={
+			index:i+1,
 			date: Random.date(),
 			name: Random.cname(),
 			address: Mock.mock('@county(true)')
